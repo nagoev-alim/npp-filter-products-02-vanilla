@@ -1,0 +1,113 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  --gap: 15px;
+  min-height: 100vh;
+  //display: grid;
+  //place-items: center;
+  background-color: var(--bcs-grey-4);
+  padding: 10px;
+}
+
+.products {
+  display: grid;
+  gap: var(--gap);
+  max-width: 1250px;
+  width: 100%;
+  margin: auto;
+
+  h2 {
+    text-align: center;
+  }
+
+  .container {
+    display: grid;
+    align-items: flex-start;
+    gap: var(--gap);
+
+    @media (min-width: 576px) {
+      grid-template-columns: minmax(200px, 300px) 1fr;
+    }
+  }
+
+
+  .filter {
+    display: grid;
+    gap: var(--gap);
+    text-align: center;
+
+    @media (min-width: 576px) {
+      text-align: left;
+    }
+
+    ul {
+      display: grid;
+      gap: 10px;
+    }
+
+    button {
+      width: 100%;
+
+      @media (min-width: 576px) {
+        width: max-content;
+      }
+
+      &.active {
+        background-color: var(--bcs-grey-3);
+      }
+    }
+  }
+
+  .list {
+    display: grid;
+    gap: var(--gap);
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    li {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+      border-radius: 8px;
+      width: 100%;
+
+      .header {
+        height: calc(200px + (300 - 200) * ((100vw - 300px) / (var(--maximumViewportWidth) - 300)));
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .body {
+        padding: 20px;
+        display: grid;
+        gap: 10px;
+      }
+    }
+  }
+}
